@@ -27,6 +27,7 @@ class StreamCell: UICollectionViewCell {
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var placeholder: UIImageView!
+    @IBOutlet weak var gameImageView: UIImageView!
 	@IBOutlet weak var streamNameLabel: UILabel!
 	@IBOutlet weak var viewersCountLabel: UILabel!
 	
@@ -56,6 +57,7 @@ class StreamCell: UICollectionViewCell {
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		imageView.image = nil
+        gameImageView.layer.borderColor = UIColor.clearColor().CGColor
 	}
 	
 	internal func bindViewModel(streamViewModel: StreamViewModel) {
@@ -63,6 +65,21 @@ class StreamCell: UICollectionViewCell {
 		if let url = NSURL(string: streamViewModel.streamImageURL.value) {
 			imageView.sd_setImageWithURL(url)
 		}
+        
+        if let gameName = streamViewModel.gameNameString() {
+            
+            let gameImageUrl = "http://static-cdn.jtvnw.net/ttv-boxart/" + gameName + "-136x190.jpg"
+            let gameImageUrlWithEncoding:String = gameImageUrl.stringByAddingPercentEncodingWithAllowedCharacters( NSCharacterSet.URLQueryAllowedCharacterSet())!
+            let url = NSURL(string: gameImageUrlWithEncoding)
+            self.gameImageView.sd_setImageWithURL(url, completed: { (image: UIImage?, error: NSError?, cacheType: SDImageCacheType!, imageURL: NSURL?) -> Void in
+                
+                if let wSelf: StreamCell = self {
+                    wSelf.gameImageView.layer.borderWidth = 3.0
+                    wSelf.gameImageView.layer.borderColor = UIColor.whiteColor().CGColor
+                }
+            })
+        }
+        
 	}
 	
 	override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {

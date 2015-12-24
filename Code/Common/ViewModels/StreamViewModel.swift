@@ -36,4 +36,8 @@ internal class StreamViewModel {
 			+ NSLocalizedString("on", comment: "") + " "
 			+ stream.channel.displayName
 	}
+    
+    func gameNameString() -> String? {
+        return self.stream.gameNameString
+    }
 }
