@@ -23,9 +23,9 @@ import ReactiveCocoa
 
 class GamesViewController: UIViewController {
 
-	let gameCellWidth: CGFloat = 148.0
+	let gameCellWidth: CGFloat = 200.0
 	let horizontalSpacing: CGFloat = 51.0
-	let verticalSpacing: CGFloat = 100.0
+	let verticalSpacing: CGFloat = 50.0
 	
 	var onGameSelected: (Game -> ())?
 	
@@ -40,7 +40,7 @@ class GamesViewController: UIViewController {
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .Horizontal
 		layout.itemSize = CGSize(width: gameCellWidth, height: gameCellWidth/Constants.gameImageRatio)
-		layout.sectionInset = UIEdgeInsets(top: 60, left: 90, bottom: 60, right: 90)
+		layout.sectionInset = UIEdgeInsets(top: 40, left: 90, bottom: 60, right: 90)
 		layout.minimumInteritemSpacing = horizontalSpacing
 		layout.minimumLineSpacing = verticalSpacing
 		

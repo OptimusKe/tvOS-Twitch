@@ -24,8 +24,8 @@ import ReactiveCocoa
 
 class StreamsViewController: UIViewController {
 
-	let streamCellWidth: CGFloat = 308.0
-	let horizontalSpacing: CGFloat = 50.0
+	let streamCellWidth: CGFloat = 400
+	let horizontalSpacing: CGFloat = 40.0
 	let verticalSpacing: CGFloat = 100.0
 	
 	let presentStream: Action<(stream: Stream, controller: UIViewController), Void, NSError> = Action {
@@ -77,7 +77,7 @@ class StreamsViewController: UIViewController {
 		
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .Vertical
-		layout.itemSize = CGSize(width: streamCellWidth, height: 250.0)
+		layout.itemSize = CGSize(width: streamCellWidth, height: 335)
 		layout.sectionInset = UIEdgeInsets(top: 60, left: 90, bottom: 60, right: 90)
 		layout.minimumInteritemSpacing = horizontalSpacing
 		layout.minimumLineSpacing = verticalSpacing

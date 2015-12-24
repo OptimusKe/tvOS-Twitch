@@ -28,8 +28,8 @@ class GameCell: UICollectionViewCell {
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var labelName: UILabel!
 	
-	private let textDefaultFont = UIFont.boldSystemFontOfSize(22)
-	private let textDefaultColor = UIColor.lightGrayColor()
+	private let textDefaultFont = UIFont.boldSystemFontOfSize(30)
+	private let textDefaultColor = UIColor.blackColor()
 	private let viewModel = MutableProperty<GameViewModel?>(nil)
 	
 	override func prepareForReuse() {

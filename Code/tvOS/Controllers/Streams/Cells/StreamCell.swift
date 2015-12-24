@@ -32,8 +32,8 @@ class StreamCell: UICollectionViewCell {
 	
 	private let defaultTextColor = UIColor.lightGrayColor()
 	private let focusedTextColor = UIColor.whiteColor()
-	private let defaultStreamFont = UIFont.boldSystemFontOfSize(22)
-	private let defaultViewersFont = UIFont.systemFontOfSize(22)
+	private let defaultStreamFont = UIFont.boldSystemFontOfSize(30)
+	private let defaultViewersFont = UIFont.systemFontOfSize(28)
 	
 	private let viewModel = MutableProperty<StreamViewModel?>(nil)
 	
